@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="viewController" id="BYZ-38-t0r" customClass="ViewController" customModule="SWAPI_Awakens" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DeathStarBG" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-MS-TXc" userLabel="BackgroundView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="SpaceBlack"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SWLogo1" highlightedImage="SWLogo1" translatesAutoresizingMaskIntoConstraints="NO" id="NoF-N6-e1h">
+                                <rect key="frame" x="60" y="93" width="255" height="494"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTn-yz-PSN">
+                                <rect key="frame" x="52" y="310.5" width="271" height="46"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                <state key="normal" title="   AWAKEN THE API   ">
+                                    <color key="titleColor" name="HothBlue"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="LogoGold"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="awakenButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mtA-w5-ZSz"/>
+                                    <segue destination="xMv-Wt-PNw" kind="show" identifier="menuSegue" id="sVP-hB-S6M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="SpaceBlack"/>
+                        <constraints>
+                            <constraint firstItem="NoF-N6-e1h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="8vg-iR-6Da"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NoF-N6-e1h" secondAttribute="bottom" constant="80" id="O3T-Pe-kdk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NoF-N6-e1h" secondAttribute="trailing" constant="60" id="gJn-L4-LWb"/>
+                            <constraint firstItem="eTn-yz-PSN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pd5-cR-H5h"/>
+                            <constraint firstItem="eTn-yz-PSN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="unu-rs-E7G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="awakenAPIButton" destination="eTn-yz-PSN" id="Rqk-Cw-Nqm"/>
+                        <outlet property="backgroundView" destination="BG9-MS-TXc" id="kNK-vk-xcw"/>
+                        <outlet property="logoImageView" destination="NoF-N6-e1h" id="gti-VD-iPM"/>
+                        <outlet property="splashView" destination="8bC-Xf-vdC" id="6a4-fw-6E7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-822" y="117"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="itn-GK-lxw">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="xMv-Wt-PNw" customClass="MenuViewController" customModule="SWAPI_Awakens" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cHZ-mH-PQQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DeathStarBG" translatesAutoresizingMaskIntoConstraints="NO" id="WSb-iw-Uiv">
+                                <rect key="frame" x="0.0" y="-10" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="SpaceBlack"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="RVS-oe-Rlg" userLabel="MenuStack">
+                                <rect key="frame" x="40" y="32" width="295" height="575"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBF-th-Q5t">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="151.5"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="icon-characters"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="LogoGold"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectItem:" destination="xMv-Wt-PNw" eventType="touchUpInside" id="xhP-Wi-pjA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRc-kM-D4g">
+                                        <rect key="frame" x="0.0" y="211.5" width="295" height="152"/>
+                                        <gestureRecognizers/>
+                                        <state key="normal" image="icon-vehicles"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="LogoGold"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectItem:" destination="xMv-Wt-PNw" eventType="touchUpInside" id="iTT-4p-f9f"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaf-xE-5gA">
+                                        <rect key="frame" x="0.0" y="423.5" width="295" height="151.5"/>
+                                        <state key="normal" image="icon-starships"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="LogoGold"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectItem:" destination="xMv-Wt-PNw" eventType="touchUpInside" id="yRO-4O-I5m"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="SpaceBlack"/>
+                        <constraints>
+                            <constraint firstItem="FJK-Lu-8yp" firstAttribute="trailing" secondItem="RVS-oe-Rlg" secondAttribute="trailing" constant="40" id="42J-fV-YxR"/>
+                            <constraint firstItem="FJK-Lu-8yp" firstAttribute="bottom" secondItem="RVS-oe-Rlg" secondAttribute="bottom" constant="40" id="IfC-hO-jnS"/>
+                            <constraint firstItem="RVS-oe-Rlg" firstAttribute="leading" secondItem="FJK-Lu-8yp" secondAttribute="leading" constant="40" id="Lq8-hc-0Iq"/>
+                            <constraint firstItem="RVS-oe-Rlg" firstAttribute="top" secondItem="FJK-Lu-8yp" secondAttribute="top" constant="32" id="ObR-kC-qVm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FJK-Lu-8yp"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C76-Zp-gm4"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="WSb-iw-Uiv" id="2Qc-Zw-snR"/>
+                        <outlet property="characterButton" destination="SBF-th-Q5t" id="RS5-Hq-BzR"/>
+                        <outlet property="menuSelectionStack" destination="RVS-oe-Rlg" id="cUw-c3-zYg"/>
+                        <outlet property="menuView" destination="cHZ-mH-PQQ" id="9sK-pM-t4L"/>
+                        <outlet property="starshipButton" destination="kaf-xE-5gA" id="Ijq-jl-dWJ"/>
+                        <outlet property="vehicleButton" destination="aRc-kM-D4g" id="vJq-Em-SrY"/>
+                        <segue destination="dW6-PU-VTr" kind="show" identifier="informationSegue" id="K49-5H-vTJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynE-4b-g6K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-12" y="117.39130434782609"/>
+        </scene>
+        <!--Information View Controller-->
+        <scene sceneID="w0F-RC-wc8">
+            <objects>
+                <viewController storyboardIdentifier="InformationViewController" id="dW6-PU-VTr" customClass="InformationViewController" customModule="SWAPI_Awakens" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l4K-CN-fdL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DeathStarBG" translatesAutoresizingMaskIntoConstraints="NO" id="TVi-gr-ln5">
+                                <rect key="frame" x="0.0" y="-10" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="SpaceBlack"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2o3-1M-vuc" userLabel="InfoOverviewStack">
+                                <rect key="frame" x="40" y="32" width="295" height="575"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="G5d-pl-Vnz" userLabel="Header Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7E-A6-EQi">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="nBF-QA-DlI"/>
+                                                    <constraint firstAttribute="height" constant="40" id="okU-eW-jxA"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                                <state key="normal" image="DismissIconRed"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="dismissCurrentSelectionButton:" destination="dW6-PU-VTr" eventType="touchUpInside" id="587-L9-SxZ"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sas-ll-x6c">
+                                                <rect key="frame" x="50" y="0.0" width="195" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                                <color key="textColor" name="HothBlue"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="LogoGold"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVV-Yp-eXd">
+                                                <rect key="frame" x="255" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="MCL-29-6oC"/>
+                                                    <constraint firstAttribute="width" constant="40" id="Yeu-Dy-mtn"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                                <state key="normal" image="ConversionGreen"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="convertButton:" destination="dW6-PU-VTr" eventType="touchUpInside" id="QFy-q8-ba1"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subheader" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwl-eR-Rhu">
+                                        <rect key="frame" x="0.0" y="50.5" width="295" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="T65-PB-BIH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                        <color key="textColor" name="HothBlue"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="LogoGold"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GFo-Jd-FKd" userLabel="Info Stack">
+                                        <rect key="frame" x="0.0" y="91.5" width="295" height="143.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9H2-k0-ZP8" userLabel="PropertyStack">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="143.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Born" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAd-8j-1ax">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="21.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="75" id="hF2-QU-NIk"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="HothBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="LogoGold"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0v-RM-ehP">
+                                                        <rect key="frame" x="0.0" y="31.5" width="75" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="HothBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="LogoGold"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aj-WJ-MTI">
+                                                        <rect key="frame" x="0.0" y="62" width="75" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="HothBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="LogoGold"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eyes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wJ-dD-Cmg">
+                                                        <rect key="frame" x="0.0" y="92.5" width="75" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="HothBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="LogoGold"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDp-rT-YDQ">
+                                                        <rect key="frame" x="0.0" y="123" width="75" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="HothBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="LogoGold"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="whd-Am-dZF" userLabel="ValueStack">
+                                                <rect key="frame" x="90" y="0.0" width="205" height="143.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Value year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht4-bD-Asg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="205" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="WampaWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mph-RU-NhD">
+                                                        <rect key="frame" x="0.0" y="30.5" width="205" height="21.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Value planet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aro-G4-5d9">
+                                                                <rect key="frame" x="0.0" y="0.0" width="165" height="21.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <color key="textColor" name="WampaWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqB-0r-mPV" userLabel="CreditLabel">
+                                                                <rect key="frame" x="165" y="0.0" width="40" height="21.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="53T-aT-G7i"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" name="HothBlue"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWG-rK-hLj" userLabel="Height Stack">
+                                                        <rect key="frame" x="0.0" y="62" width="205" height="20.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Value height" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vV-kJ-KXa">
+                                                                <rect key="frame" x="0.0" y="0.0" width="165" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="WampaWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7c-yq-Dlg" userLabel="unitsLabel">
+                                                                <rect key="frame" x="165" y="0.0" width="40" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="ns6-m3-f4f"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <color key="textColor" name="HothBlue"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="0.0"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="LogoGold"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="C7c-yq-Dlg" secondAttribute="trailing" id="eGM-hc-LMw"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Value color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5D-iq-2vB">
+                                                        <rect key="frame" x="0.0" y="92.5" width="205" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="WampaWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Value color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Or-XG-cM0">
+                                                        <rect key="frame" x="0.0" y="123" width="205" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="WampaWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="9H2-k0-ZP8" firstAttribute="leading" secondItem="GFo-Jd-FKd" secondAttribute="leading" id="CLv-6s-3FJ"/>
+                                            <constraint firstItem="9H2-k0-ZP8" firstAttribute="top" secondItem="GFo-Jd-FKd" secondAttribute="top" id="n0F-KE-EkE"/>
+                                            <constraint firstAttribute="bottom" secondItem="whd-Am-dZF" secondAttribute="bottom" id="oM0-9k-Qvy"/>
+                                            <constraint firstItem="whd-Am-dZF" firstAttribute="top" secondItem="GFo-Jd-FKd" secondAttribute="top" id="tg0-dS-V6l"/>
+                                            <constraint firstAttribute="bottom" secondItem="9H2-k0-ZP8" secondAttribute="bottom" id="uXR-RX-HBa"/>
+                                        </constraints>
+                                    </stackView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gA6-dd-3gb">
+                                        <rect key="frame" x="0.0" y="245.5" width="295" height="216"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="LogoGold"/>
+                                    </pickerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qaH-KH-Rms" userLabel="SizeSuperStack">
+                                        <rect key="frame" x="0.0" y="472.5" width="295" height="46"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ld2-nZ-flY" userLabel="SizeStack">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smallest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pd6-8a-VuE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="20.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="70" id="Uds-tc-BqA"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="HothBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="LogoGold"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Largest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mj-Y2-zXb">
+                                                        <rect key="frame" x="0.0" y="25.5" width="70" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="HothBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="LogoGold"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wos-ah-1jH" userLabel="SizeValueStack">
+                                                <rect key="frame" x="85" y="0.0" width="210" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Smallest PersonObject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6E-sO-Zge">
+                                                        <rect key="frame" x="0.0" y="0.0" width="210" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="WampaWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Largest PersonObject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afi-sj-fOO">
+                                                        <rect key="frame" x="0.0" y="25.5" width="210" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="WampaWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ld2-nZ-flY" firstAttribute="leading" secondItem="qaH-KH-Rms" secondAttribute="leading" id="kYV-KT-6Vg"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OVk-ro-7mp" userLabel="Associated Stack">
+                                        <rect key="frame" x="0.0" y="529" width="295" height="46"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WAC-bj-egq" userLabel="AssociatedVS">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXo-nX-PAh" userLabel="Vehicles Label">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="20.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="70" id="5y0-d3-Zei"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="HothBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="LogoGold"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starship" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8w-3d-oT9" userLabel="Starships Label">
+                                                        <rect key="frame" x="0.0" y="25.5" width="70" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="HothBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="LogoGold"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="evd-9F-96b" userLabel="AssociatedData">
+                                                <rect key="frame" x="85" y="0.0" width="210" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="VehicleData" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYb-oO-F23" userLabel="VehicleData">
+                                                        <rect key="frame" x="0.0" y="0.0" width="210" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="WampaWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StarshipData" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxO-G9-Ch0" userLabel="StarshipData">
+                                                        <rect key="frame" x="0.0" y="25.5" width="210" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="WampaWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="WAC-bj-egq" firstAttribute="leading" secondItem="OVk-ro-7mp" secondAttribute="leading" id="hdr-69-7f0"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="G5d-pl-Vnz" secondAttribute="trailing" id="1ws-fC-ZbI"/>
+                                    <constraint firstAttribute="trailing" secondItem="GFo-Jd-FKd" secondAttribute="trailing" id="8pN-o4-kHW"/>
+                                    <constraint firstItem="G5d-pl-Vnz" firstAttribute="top" secondItem="2o3-1M-vuc" secondAttribute="top" id="Hjg-4p-RDy"/>
+                                    <constraint firstItem="OVk-ro-7mp" firstAttribute="leading" secondItem="2o3-1M-vuc" secondAttribute="leading" id="IiW-yD-AGn"/>
+                                    <constraint firstItem="gA6-dd-3gb" firstAttribute="leading" secondItem="2o3-1M-vuc" secondAttribute="leading" id="PtS-Xq-QFe"/>
+                                    <constraint firstAttribute="trailing" secondItem="gA6-dd-3gb" secondAttribute="trailing" id="W3Z-el-tWZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="OVk-ro-7mp" secondAttribute="trailing" id="XcM-iE-bpm"/>
+                                    <constraint firstItem="G5d-pl-Vnz" firstAttribute="leading" secondItem="2o3-1M-vuc" secondAttribute="leading" id="fqi-LF-whP"/>
+                                    <constraint firstItem="qaH-KH-Rms" firstAttribute="leading" secondItem="2o3-1M-vuc" secondAttribute="leading" id="ild-RC-MIB"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vwl-eR-Rhu" secondAttribute="trailing" id="s4Z-ru-mHD"/>
+                                    <constraint firstItem="Vwl-eR-Rhu" firstAttribute="leading" secondItem="2o3-1M-vuc" secondAttribute="leading" id="uv8-7y-pjg"/>
+                                    <constraint firstItem="GFo-Jd-FKd" firstAttribute="leading" secondItem="2o3-1M-vuc" secondAttribute="leading" id="xXE-I5-FMj"/>
+                                    <constraint firstAttribute="trailing" secondItem="qaH-KH-Rms" secondAttribute="trailing" id="zOn-qF-VQx"/>
+                                </constraints>
+                            </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="kM7-DW-g5C">
+                                <rect key="frame" x="169" y="305" width="37" height="37"/>
+                                <color key="color" name="LogoGold"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" name="SpaceBlack"/>
+                        <constraints>
+                            <constraint firstItem="kM7-DW-g5C" firstAttribute="centerY" secondItem="l4K-CN-fdL" secondAttribute="centerY" id="65l-x9-S7J"/>
+                            <constraint firstItem="2o3-1M-vuc" firstAttribute="leading" secondItem="jM5-B6-j29" secondAttribute="leading" constant="40" id="6F5-ih-VJP"/>
+                            <constraint firstItem="kM7-DW-g5C" firstAttribute="centerX" secondItem="l4K-CN-fdL" secondAttribute="centerX" id="YZY-sC-2Qs"/>
+                            <constraint firstItem="jM5-B6-j29" firstAttribute="bottom" secondItem="2o3-1M-vuc" secondAttribute="bottom" constant="40" id="e09-am-XQj"/>
+                            <constraint firstItem="2o3-1M-vuc" firstAttribute="top" secondItem="jM5-B6-j29" secondAttribute="top" constant="32" id="gMx-rt-r4G"/>
+                            <constraint firstItem="jM5-B6-j29" firstAttribute="trailing" secondItem="2o3-1M-vuc" secondAttribute="trailing" constant="40" id="scC-6y-Jox"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jM5-B6-j29"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QT8-In-YMt"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="kM7-DW-g5C" id="Zwn-dW-8Gb"/>
+                        <outlet property="associatedStack" destination="OVk-ro-7mp" id="Kl9-n2-zvV"/>
+                        <outlet property="associatedStarshipDataLabel" destination="qxO-G9-Ch0" id="gYr-4b-aGp"/>
+                        <outlet property="associatedVehicleDataLabel" destination="uYb-oO-F23" id="SF0-M0-FWW"/>
+                        <outlet property="backgroundView" destination="TVi-gr-ln5" id="WHC-Tx-vCF"/>
+                        <outlet property="bornLabel" destination="AAd-8j-1ax" id="8zM-Cz-X8P"/>
+                        <outlet property="convertButton" destination="WVV-Yp-eXd" id="jAg-C9-cKO"/>
+                        <outlet property="creditLabel" destination="wqB-0r-mPV" id="wNx-OB-Hqz"/>
+                        <outlet property="dismissButton" destination="z7E-A6-EQi" id="hMh-UC-r6G"/>
+                        <outlet property="eyeColorLabel" destination="J5D-iq-2vB" id="eci-tA-EHk"/>
+                        <outlet property="eyesLabel" destination="5wJ-dD-Cmg" id="bz1-bE-B3B"/>
+                        <outlet property="hairColorLabel" destination="7Or-XG-cM0" id="RRz-Rw-sCt"/>
+                        <outlet property="hairLabel" destination="yDp-rT-YDQ" id="SXA-vF-3sH"/>
+                        <outlet property="headerTitleLabel" destination="Sas-ll-x6c" id="krE-pU-Jby"/>
+                        <outlet property="heightLabel" destination="3aj-WJ-MTI" id="zfG-a0-haM"/>
+                        <outlet property="heightValueLabel" destination="7vV-kJ-KXa" id="BKi-Fi-P2A"/>
+                        <outlet property="homeLabel" destination="X0v-RM-ehP" id="Lh1-oz-6AF"/>
+                        <outlet property="informationOverviewStack" destination="2o3-1M-vuc" id="ayh-22-3tg"/>
+                        <outlet property="largestItemLabel" destination="Afi-sj-fOO" id="a7o-px-Gz9"/>
+                        <outlet property="largestLabel" destination="6Mj-Y2-zXb" id="g6c-z3-lBf"/>
+                        <outlet property="picker" destination="gA6-dd-3gb" id="Oms-qP-hO9"/>
+                        <outlet property="planetLabel" destination="aro-G4-5d9" id="fM0-sJ-y9e"/>
+                        <outlet property="smallestItemLabel" destination="h6E-sO-Zge" id="aWK-qO-q7w"/>
+                        <outlet property="smallestLabel" destination="Pd6-8a-VuE" id="xJo-KH-UXe"/>
+                        <outlet property="subheaderLabel" destination="Vwl-eR-Rhu" id="bgG-OL-iMp"/>
+                        <outlet property="unitsLabel" destination="C7c-yq-Dlg" id="Srs-XW-BJw"/>
+                        <outlet property="yearLabel" destination="Ht4-bD-Asg" id="Z55-mS-xrz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tlP-UL-0fk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.79999999999995" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ConversionGreen" width="115" height="115"/>
+        <image name="DeathStarBG" width="640" height="1136"/>
+        <image name="DismissIconRed" width="512" height="512"/>
+        <image name="SWLogo1" width="450" height="247"/>
+        <image name="icon-characters" width="100" height="100"/>
+        <image name="icon-starships" width="100" height="100"/>
+        <image name="icon-vehicles" width="100" height="100"/>
+        <namedColor name="HothBlue">
+            <color red="0.48627450980392156" green="0.81568627450980391" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LogoGold">
+            <color red="1" green="0.84299999475479126" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SpaceBlack">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WampaWhite">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
