@@ -135,7 +135,7 @@ extension Client {
                 // If we have pages we check for each page if it contains results
                 for characterPage in characterPages {
                     guard let characterArray = characterPage.results else {
-                        print("Unable to obtain character array from pages")
+//                        print("Unable to obtain character array from pages")
                         completion(nil, error)
                         return
                     }
@@ -144,8 +144,8 @@ extension Client {
                         var characterDuplicates = [Character]()
                         if !allCharacters.contains(character) {
                             allCharacters.append(character)
-                            print("***")
-                            print("\(String(describing: character.name)) added to array; total: \(allCharacters.count)")
+//                            print("***")
+//                            print("\(String(describing: character.name)) added to array; total: \(allCharacters.count)")
                         } else {
                             characterDuplicates.append(character)
                         }

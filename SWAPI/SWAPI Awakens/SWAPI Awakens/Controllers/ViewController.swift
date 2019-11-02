@@ -10,49 +10,36 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // Outlets
     @IBOutlet var splashView: UIView!
-    
-    // background view
     @IBOutlet weak var backgroundView: UIImageView!
-    
-    // splash entry button
     @IBOutlet weak var awakenAPIButton: UIButton!
-    
-    // view that holds the logo animation
     @IBOutlet weak var logoImageView: UIImageView!
     
-    // This stores the array of logo images for the animation
+    // Animation Image Array
     var logoImages: [UIImage] = []
-    
+        
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "menuSegue" {
             if identifier != "menuSegue" {
                 return false
             }
         }
-
         return true
     }
     
     @IBAction func awakenButton(_ sender: UIButton) {
-
         // MARK: - Custom Alert Test
 //        errorAlert(description: SwapiError.invalidData.localizedDescription) // test
-        
     }
        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // MARK: Logo Animation
-        // Here we create an instance of the logo animation class to make it available in the viewController
         let logoAnimation = LogoAnimation()
-        
-        // At splash screen an animated logo UIImageView is visible
-        logoImages = logoAnimation.createLogoArray(total: 11, imagePrefix: "SWLogo") // Also see LogoAnimation.swift
+        logoImages = logoAnimation.createLogoArray(total: 11, imagePrefix: "SWLogo")
         logoAnimation.animate(imageView: logoImageView, images: logoImages)
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +55,7 @@ class ViewController: UIViewController {
         logoImageView.alpha = 0
         
         // awakenPAIButton starts outside top border of view
-        awakenAPIButton.center.y  -= view.bounds.height
+        awakenAPIButton.center.y -= view.bounds.height
         
         // logo animation starts outside bottom border of view
         logoImageView.center.y += view.bounds.height
@@ -96,6 +83,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
   
     }
-
 }
 

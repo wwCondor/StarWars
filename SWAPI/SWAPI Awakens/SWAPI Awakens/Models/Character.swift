@@ -11,7 +11,6 @@ import Foundation
 // From each character within the Star Wars universe we are going to use the following data
 // Note: Decided to go for "Character" instead of "People" for the class name as it contains individuals of which it might be debatable whether or not they are people... (e.g. robots/droids))
 struct Character: Codable, Equatable {
-    
     // The basic character properties that will be displayed in the character overview
     let name: String? // Name of the character
     let homeworld: URL? // This are stored as a planet URL

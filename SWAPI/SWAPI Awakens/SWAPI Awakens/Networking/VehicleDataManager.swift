@@ -43,7 +43,7 @@ extension Client {
                 // If we have pages we check for each page if it contains results
                 for vehiclePage in vehiclePages {
                     guard let vehicleArray = vehiclePage.results else {
-                        print("Unable to obtain vehicle array from pages")
+//                        print("Unable to obtain vehicle array from pages")
                         completion(nil, error)
                         return
                     }
@@ -52,8 +52,8 @@ extension Client {
                         var vehicleDuplicates = [Vehicle]()
                         if !allVehicles.contains(vehicle) {
                             allVehicles.append(vehicle)
-                            print("***")
-                            print("\(vehicle)) added, \(allVehicles.count) vehicles in array")
+//                            print("***")
+//                            print("\(vehicle)) added, \(allVehicles.count) vehicles in array")
                         } else {
                             vehicleDuplicates.append(vehicle)
                         }

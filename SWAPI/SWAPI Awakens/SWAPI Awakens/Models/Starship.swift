@@ -10,7 +10,6 @@ import Foundation
 
 // Starship object
 struct Starship: Codable, Equatable {
-    
     // The basic starship properties that will be displayed in the starship overview
     let name: String? // Name ship goes in subheader textLabel
     
@@ -21,5 +20,4 @@ struct Starship: Codable, Equatable {
     let crew: String?
     
     let url: URL?
-    
 }

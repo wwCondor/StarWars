@@ -11,7 +11,6 @@ import UIKit
 class MenuViewController: UIViewController {
     
     var menuViewObject: UIView?
-    
     var itemSelected: ItemSelected? // This holds the selected item for the different catagories
 
     @IBOutlet weak var backgroundView: UIImageView!
@@ -29,7 +28,6 @@ class MenuViewController: UIViewController {
     
 
     @IBAction func selectItem(_ sender: UIButton) {
-        
         sender.pulsate() // This calls the pulse method which makes the button pulse when pressed
 
         switch sender {
@@ -39,12 +37,10 @@ class MenuViewController: UIViewController {
         default:
             break
         }
-        
         performSegue(withIdentifier: "informationSegue", sender: self)
-
     }
     
-    // This handles passing information from the menuViewcontroller over to the informationViewcontroller
+    // This handles passing information from the menuViewcontroller to the informationViewcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Here we make sure the selected Item gets transfered to the InformationViewController
@@ -57,21 +53,16 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // MenuSelectionStack/backgroundView start faded out
-        menuSelectionStack.alpha = 0
-        backgroundView.alpha = 0
-        
+        // MenuSelectionStack/backgroundView start faded out (not used anymore, felt glittchy)
+//        menuSelectionStack.alpha = 0
+//        backgroundView.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         // MenuSelectionStack/backgroundView fade in from black
-        self.menuSelectionStack.quickFadeIn()
-        self.backgroundView.quickFadeIn()
-        
+//        self.menuSelectionStack.quickFadeIn()
+//        self.backgroundView.quickFadeIn()
     }
-    
     
 }

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 public extension UIView {
+    // Not used anymore (here for future reference)
     // This fade in is used to fade in objects in the viewDidAppear sections in the intial viewController
     func slowFadeIn() {
         UIView.animate(withDuration: 3.0, delay: 0.3, options: UIView.AnimationOptions.curveEaseIn, animations: {

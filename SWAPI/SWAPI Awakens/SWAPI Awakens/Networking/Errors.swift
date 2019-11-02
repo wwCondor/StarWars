@@ -8,15 +8,13 @@
 
 import Foundation
 
-// These are the error we need to deal with
-// It conforms to the "Error" protocol
 enum SwapiError: Error {
     case requestFailed
     case responseUnsuccessful(statuscode: Int)
     case invalidData
     case jsonConversionFailure(message: String)
     case invalidUrl
-    case jsonParsingFailure(message: String) // Here we add an associated value to be able to give some extra information on why the parsing failed
+    case jsonParsingFailure(message: String)
 }
 
 extension SwapiError: LocalizedError {
@@ -28,7 +26,6 @@ extension SwapiError: LocalizedError {
         case .jsonConversionFailure: return "JSON Conversion Failed"
         case .invalidUrl: return "Invalid URL"
         case .jsonParsingFailure: return "JSON Parsing Failed"
-            
         }
     }
 }

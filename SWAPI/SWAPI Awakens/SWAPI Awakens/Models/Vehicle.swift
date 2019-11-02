@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Vehicle: Codable, Equatable { 
-    
+struct Vehicle: Codable, Equatable {
     // The basic vehicle properties that will be displayed in the vehicle overview
     let name: String? // Name ship goes in subheader textLabel
     
@@ -20,6 +19,5 @@ struct Vehicle: Codable, Equatable {
     let crew: String?
     
     let url: URL?
-    
 }
 

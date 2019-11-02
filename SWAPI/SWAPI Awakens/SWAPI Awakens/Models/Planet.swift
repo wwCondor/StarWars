@@ -12,5 +12,4 @@ import Foundation
 struct Planet: Decodable, Equatable {
     let name: String // The planet that this person was born on or inhabits.
     let url: URL
-    
 }

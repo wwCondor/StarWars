@@ -130,7 +130,6 @@ class InformationViewController: UIViewController {
                         DispatchQueue.main.async {
                             guard let planet = planet else {
                                 self.errorAlert(description: "Could not get homeworld for character. Please check your internet connection or http://swapi.co/api for API status")
-                                print("")
                                 return
                             }
                             
@@ -143,7 +142,6 @@ class InformationViewController: UIViewController {
                         DispatchQueue.main.async {
                             guard let vehicle = vehicle else {
                                 self.errorAlert(description: "Could not find associated vehicle for character. Please check your internet connection or http://swapi.co/api for API status")
-                                print("")
                                 return
                             }
                             self.associatedVehicleDataLabel.text = vehicle.name
@@ -154,7 +152,6 @@ class InformationViewController: UIViewController {
                         DispatchQueue.main.async {
                             guard let starship = starship else {
                                 self.errorAlert(description: "Could not find associated starship for character. Please check your internet connection or http://swapi.co/api for API status")
-                                print("")
                                 return
                             }
                             self.associatedStarshipDataLabel.text = starship.name
@@ -172,7 +169,6 @@ class InformationViewController: UIViewController {
                     //  First we check wether we have vehicles
                     guard let vehicles = vehicles else {
                         self.errorAlert(description: "Could not retrieve vehicles. Please check your internet connection or http://swapi.co/api for API status")
-                        print("")
                         return
                     }
                     
@@ -196,7 +192,6 @@ class InformationViewController: UIViewController {
                     //  First we check wether we have starship
                     guard let starships = starships else {
                         self.errorAlert(description: "Could not retrieve starships. Please check your internet connection or http://swapi.co/api for API status")
-                        print("")
                         return
                     }
                     
@@ -478,8 +473,8 @@ class InformationViewController: UIViewController {
         
         clearLabelData()
         
-        informationOverviewStack.alpha = 0
-        backgroundView.alpha = 0
+//        informationOverviewStack.alpha = 0
+//        backgroundView.alpha = 0
         
         // First we make sure we have an item selected if not we return
         guard let selection = selectedItem else { return }
@@ -508,8 +503,8 @@ class InformationViewController: UIViewController {
         super.viewDidAppear(animated)
         
         // InformationOverviewstack/background fade in
-        self.informationOverviewStack.quickFadeIn()
-        self.backgroundView.quickFadeIn()
+//        self.informationOverviewStack.quickFadeIn()
+//        self.backgroundView.quickFadeIn()
         
     }
     
