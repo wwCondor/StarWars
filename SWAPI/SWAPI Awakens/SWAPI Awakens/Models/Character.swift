@@ -22,6 +22,5 @@ struct Character: Codable, Equatable {
 
     let vehicles: [URL]? // An array of vehicle URLs this character has piloted
     let starships: [URL]? // An array of starship URLs this character has piloted
-    
 }
    

@@ -22,6 +22,7 @@
 		0B610FE3227A1CA70034754D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B610FE2227A1CA70034754D /* Errors.swift */; };
 		0B610FEF22819F350034754D /* AddImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B610FEE22819F350034754D /* AddImage.swift */; };
 		0B610FF12281A3420034754D /* ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B610FF02281A3420034754D /* ResizeImage.swift */; };
+		0B7ABD4B2373473200EF16B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABD4A2373473200EF16B0 /* AppDelegate.swift */; };
 		0BC8FF24234A07FA001145AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BC8FF23234A07FA001145AF /* Main.storyboard */; };
 		0BE027D12337EF0E009C28A7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE027D02337EF0E009C28A7 /* MenuViewController.swift */; };
 		0BE027D32337EF1F009C28A7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE027D22337EF1F009C28A7 /* InfoViewController.swift */; };
@@ -32,7 +33,6 @@
 		0BE028422344AB88009C28A7 /* VehicleDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE028412344AB88009C28A7 /* VehicleDataManager.swift */; };
 		0BE028442344AB9A009C28A7 /* StarshipDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE028432344AB9A009C28A7 /* StarshipDataManager.swift */; };
 		0BE0284A2344E495009C28A7 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE028492344E495009C28A7 /* Picker.swift */; };
-		0BE02916234A0377009C28A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE02915234A0377009C28A7 /* AppDelegate.swift */; };
 		0BE02920234A05E3009C28A7 /* ButtonDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0291F234A05E3009C28A7 /* ButtonDesign.swift */; };
 		0BE02924234A0602009C28A7 /* LabelDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE02923234A0602009C28A7 /* LabelDesign.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +55,7 @@
 		0B610FE2227A1CA70034754D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		0B610FEE22819F350034754D /* AddImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImage.swift; sourceTree = "<group>"; };
 		0B610FF02281A3420034754D /* ResizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImage.swift; sourceTree = "<group>"; };
+		0B7ABD4A2373473200EF16B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BC8FF23234A07FA001145AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0BE027D02337EF0E009C28A7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		0BE027D22337EF1F009C28A7 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		0BE028412344AB88009C28A7 /* VehicleDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataManager.swift; sourceTree = "<group>"; };
 		0BE028432344AB9A009C28A7 /* StarshipDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDataManager.swift; sourceTree = "<group>"; };
 		0BE028492344E495009C28A7 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
-		0BE02915234A0377009C28A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../../../.Trash/AppDelegate.swift; sourceTree = "<group>"; };
 		0BE0291F234A05E3009C28A7 /* ButtonDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDesign.swift; sourceTree = "<group>"; };
 		0BE02923234A0602009C28A7 /* LabelDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelDesign.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +107,7 @@
 				0B47DB9522858C31000C0563 /* Networking */,
 				0BE027E6233BAC67009C28A7 /* Storyboards */,
 				0B0E378222536A7700F94459 /* Assets.xcassets */,
-				0BE02915234A0377009C28A7 /* AppDelegate.swift */,
+				0B7ABD4A2373473200EF16B0 /* AppDelegate.swift */,
 				0B0E378722536A7700F94459 /* Info.plist */,
 			);
 			path = "SWAPI Awakens";
@@ -269,12 +269,12 @@
 				0BE02924234A0602009C28A7 /* LabelDesign.swift in Sources */,
 				0BE027D72338CE73009C28A7 /* FadeAnimations.swift in Sources */,
 				0BE028442344AB9A009C28A7 /* StarshipDataManager.swift in Sources */,
-				0BE02916234A0377009C28A7 /* AppDelegate.swift in Sources */,
 				0B610FEF22819F350034754D /* AddImage.swift in Sources */,
 				0B47DBC02285AF5A000C0563 /* Page.swift in Sources */,
 				0B153B252261DFAC00872146 /* ErrorAlerts.swift in Sources */,
 				0B0E377E22536A7600F94459 /* ViewController.swift in Sources */,
 				0B0E37902253737E00F94459 /* PulsateAnimation.swift in Sources */,
+				0B7ABD4B2373473200EF16B0 /* AppDelegate.swift in Sources */,
 				0B153B2D22633CC800872146 /* Character.swift in Sources */,
 				0BE028402344AB77009C28A7 /* CharacterDataManager.swift in Sources */,
 				0BE027D32337EF1F009C28A7 /* InfoViewController.swift in Sources */,

@@ -29,11 +29,11 @@ extension InformationViewController {
         // Here we access the alertView backgroundColor to set its color
         alert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(named: "MeteoriteGray")
         
-        alert.view.tintColor = UIColor(named: "HothBlue") // This sets the actionbutton text color
+        alert.view.tintColor = UIColor(named: "HothBlue")
         
-        alertContentView.layer.borderWidth = 2 // This sets the border width of the alertmessage
-        alertContentView.layer.cornerRadius = 10 // This set the coner radius of the border
-        alertContentView.layer.borderColor = UIColor(named: "LogoGold")?.cgColor // This sets the the border UIColor as a CGColor
+        alertContentView.layer.borderWidth = 2
+        alertContentView.layer.cornerRadius = 10
+        alertContentView.layer.borderColor = UIColor(named: "LogoGold")?.cgColor // This sets the border UIColor as a CGColor
         alertContentView.layer.cornerRadius = 10
 
         let errorImage = UIImage(named: "yediTrick")
@@ -42,7 +42,7 @@ extension InformationViewController {
         
         imageView.layer.cornerRadius = 10
         
-        alert.addImage(image: errorImage!) // Here we can force unwarp since the image is hardcoded in our app
+        alert.addImage(image: errorImage!) // Image is hardcoded in app
         
         // Here we create a "confirm" action button so the user is able to dismiss the alert message
         let confirm = UIAlertAction(title: "This is not the error I'm looking for", style: .default) {
