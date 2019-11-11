@@ -61,7 +61,7 @@ extension Client {
                     completion(allVehicles, error)
                 }
             } else if let error = error {
-                print(error)
+//                print(error)
                 completion(nil, error)
             }
         }

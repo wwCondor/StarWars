@@ -6,7 +6,6 @@
 //  Copyright © 2019 Studio Willebrands. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 // this extension holds all the methods related to the Picker
@@ -82,6 +81,7 @@ extension InformationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
                guard let data = allVehicles else {
                    return
                }
+               creditLabel.text = "GC"
                unitsLabel.text = "m"
                updateVehicleData(with: data[row])
 
@@ -89,6 +89,7 @@ extension InformationViewController: UIPickerViewDelegate, UIPickerViewDataSourc
                guard let data = allStarships else {
                    return
                }
+               creditLabel.text = "GC"
                unitsLabel.text = "m"
                updateStarshipData(with: data[row])
            }

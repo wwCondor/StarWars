@@ -71,7 +71,7 @@ class Client {
                             //                            print(results)
                             completion(results, nil)
                         } catch let error {
-                            print(error)
+//                            print(error)
                             completion(nil, error)
                         }
                         

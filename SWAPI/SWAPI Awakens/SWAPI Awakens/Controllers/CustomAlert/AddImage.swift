@@ -44,21 +44,4 @@ extension UIAlertController {
         imageAction.setValue(resizedImage.withRenderingMode(.alwaysOriginal), forKey: "image")
         self.addAction(imageAction)
     }
-    
-//    func addImageView(image: UIImage) -> UIImageView {
-//
-//        let imageView = UIImageView.
-//
-//        return imageView
-//    }
-    
-//    func addImageView(image: UIImage) -> UIImageView {
-//        
-//        let errorImage = UIImage(named: "yediTrick")
-//        
-//        let imageViewSize = errorImage?.size
-//        
-//        return imageViewSize
-//        
-//    }
 }

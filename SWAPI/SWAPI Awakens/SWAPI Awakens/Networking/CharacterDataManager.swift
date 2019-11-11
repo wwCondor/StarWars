@@ -153,7 +153,7 @@ extension Client {
                     completion(allCharacters, error)
                 }
             } else if let error = error {
-                print(error)
+//                print(error)
                 completion(nil, error)
             }
         }

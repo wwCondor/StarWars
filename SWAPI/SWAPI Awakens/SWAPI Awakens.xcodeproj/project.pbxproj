@@ -22,13 +22,14 @@
 		0B610FE3227A1CA70034754D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B610FE2227A1CA70034754D /* Errors.swift */; };
 		0B610FEF22819F350034754D /* AddImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B610FEE22819F350034754D /* AddImage.swift */; };
 		0B610FF12281A3420034754D /* ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B610FF02281A3420034754D /* ResizeImage.swift */; };
+		0B739472237970AB0087C95F /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B739471237970AB0087C95F /* Methods.swift */; };
 		0B7ABD4B2373473200EF16B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7ABD4A2373473200EF16B0 /* AppDelegate.swift */; };
 		0BC8FF24234A07FA001145AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BC8FF23234A07FA001145AF /* Main.storyboard */; };
 		0BE027D12337EF0E009C28A7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE027D02337EF0E009C28A7 /* MenuViewController.swift */; };
 		0BE027D32337EF1F009C28A7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE027D22337EF1F009C28A7 /* InfoViewController.swift */; };
 		0BE027D72338CE73009C28A7 /* FadeAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE027D62338CE73009C28A7 /* FadeAnimations.swift */; };
 		0BE027F4233F4A5F009C28A7 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE027F3233F4A5F009C28A7 /* Client.swift */; };
-		0BE0283E23436E83009C28A7 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0283D23436E83009C28A7 /* ArrayExtension.swift */; };
+		0BE0283E23436E83009C28A7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0283D23436E83009C28A7 /* Extensions.swift */; };
 		0BE028402344AB77009C28A7 /* CharacterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE0283F2344AB77009C28A7 /* CharacterDataManager.swift */; };
 		0BE028422344AB88009C28A7 /* VehicleDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE028412344AB88009C28A7 /* VehicleDataManager.swift */; };
 		0BE028442344AB9A009C28A7 /* StarshipDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE028432344AB9A009C28A7 /* StarshipDataManager.swift */; };
@@ -55,13 +56,14 @@
 		0B610FE2227A1CA70034754D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		0B610FEE22819F350034754D /* AddImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImage.swift; sourceTree = "<group>"; };
 		0B610FF02281A3420034754D /* ResizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImage.swift; sourceTree = "<group>"; };
+		0B739471237970AB0087C95F /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
 		0B7ABD4A2373473200EF16B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BC8FF23234A07FA001145AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0BE027D02337EF0E009C28A7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		0BE027D22337EF1F009C28A7 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0BE027D62338CE73009C28A7 /* FadeAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimations.swift; sourceTree = "<group>"; };
 		0BE027F3233F4A5F009C28A7 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		0BE0283D23436E83009C28A7 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		0BE0283D23436E83009C28A7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0BE0283F2344AB77009C28A7 /* CharacterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataManager.swift; sourceTree = "<group>"; };
 		0BE028412344AB88009C28A7 /* VehicleDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataManager.swift; sourceTree = "<group>"; };
 		0BE028432344AB9A009C28A7 /* StarshipDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDataManager.swift; sourceTree = "<group>"; };
@@ -100,7 +102,7 @@
 		0B0E377A22536A7600F94459 /* SWAPI Awakens */ = {
 			isa = PBXGroup;
 			children = (
-				0BE0291E234A05D4009C28A7 /* Custom Design */,
+				0B7394702379683F0087C95F /* Helpers */,
 				0B610FD7227A132B0034754D /* Animations */,
 				0B153B262261EAE400872146 /* Models */,
 				0B610FDF227A1B1A0034754D /* Controllers */,
@@ -122,7 +124,7 @@
 				0B610F92226F01690034754D /* Starship.swift */,
 				0B610F94226F01770034754D /* Planet.swift */,
 				0B153B432265F11900872146 /* ItemSelected.swift */,
-				0BE0283D23436E83009C28A7 /* ArrayExtension.swift */,
+				0B610FE2227A1CA70034754D /* Errors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,7 +136,6 @@
 				0BE0283F2344AB77009C28A7 /* CharacterDataManager.swift */,
 				0BE028412344AB88009C28A7 /* VehicleDataManager.swift */,
 				0BE028432344AB9A009C28A7 /* StarshipDataManager.swift */,
-				0B610FE2227A1CA70034754D /* Errors.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -169,6 +170,16 @@
 				0B610FEE22819F350034754D /* AddImage.swift */,
 			);
 			path = CustomAlert;
+			sourceTree = "<group>";
+		};
+		0B7394702379683F0087C95F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0BE0283D23436E83009C28A7 /* Extensions.swift */,
+				0B739471237970AB0087C95F /* Methods.swift */,
+				0BE0291E234A05D4009C28A7 /* Custom Design */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		0BE027E6233BAC67009C28A7 /* Storyboards */ = {
@@ -265,7 +276,7 @@
 				0BE0284A2344E495009C28A7 /* Picker.swift in Sources */,
 				0B153B442265F11900872146 /* ItemSelected.swift in Sources */,
 				0BE027D12337EF0E009C28A7 /* MenuViewController.swift in Sources */,
-				0BE0283E23436E83009C28A7 /* ArrayExtension.swift in Sources */,
+				0BE0283E23436E83009C28A7 /* Extensions.swift in Sources */,
 				0BE02924234A0602009C28A7 /* LabelDesign.swift in Sources */,
 				0BE027D72338CE73009C28A7 /* FadeAnimations.swift in Sources */,
 				0BE028442344AB9A009C28A7 /* StarshipDataManager.swift in Sources */,
@@ -285,6 +296,7 @@
 				0BE028422344AB88009C28A7 /* VehicleDataManager.swift in Sources */,
 				0B610FD9227A13420034754D /* LogoAnimation.swift in Sources */,
 				0B610F93226F01690034754D /* Starship.swift in Sources */,
+				0B739472237970AB0087C95F /* Methods.swift in Sources */,
 				0B610FF12281A3420034754D /* ResizeImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

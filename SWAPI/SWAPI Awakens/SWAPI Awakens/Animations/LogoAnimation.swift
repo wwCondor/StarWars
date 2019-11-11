@@ -6,7 +6,6 @@
 //  Copyright © 2019 Studio Willebrands. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 // This object takes care of the logo animation

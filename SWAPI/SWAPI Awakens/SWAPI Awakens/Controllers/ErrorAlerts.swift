@@ -9,7 +9,6 @@
 
 // Extension for ViewController that shows an alert when an error has occured
 // Note: These need to be called wherever the error can occur
-import Foundation
 import UIKit
 
 // Here we customized the default alert by writing custom methods for it
@@ -21,7 +20,7 @@ extension InformationViewController {
     func errorAlert(description: String) {
         
         // The errors have the title "SwapiError" of which each has its own localized description
-        let alert = UIAlertController(title: "SwapiError", message: description, preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: description, preferredStyle: .alert)
         
         let subView = alert.view.subviews.first! as UIView
         let alertContentView = subView.subviews.first! as UIView

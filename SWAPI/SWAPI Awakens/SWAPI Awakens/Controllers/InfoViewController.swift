@@ -57,9 +57,9 @@ class InformationViewController: UIViewController {
     @IBOutlet weak var informationOverviewStack: UIStackView! // the main information overview stack
     @IBOutlet weak var associatedStack: UIStackView! // associated vehicles/starships stack
 
-    
-    
     var selectedItem: ItemSelected? // This is where we store the selection
+    
+    var conversionRate: Double = 2.0 // Used to convert between GC and USD
         
     let client = Client() // Here we create an instance of client object
     
@@ -70,7 +70,6 @@ class InformationViewController: UIViewController {
     var filteredCharacterData: [Character]?
     var filteredVehicleData: [Vehicle]?
     var filteredStarshipData: [Starship]?
-    
     
     @IBAction func dismissCurrentSelectionButton(_ sender: UIButton) {
         
@@ -105,11 +104,8 @@ class InformationViewController: UIViewController {
         activityAnimationToggle?.startAnimating()
         
         // First we check wether a selection has been made
-        guard let menuSelection = selectedItem else {
-            self.errorAlert(description: "An error occured in making a menu selection")
-            return
-        }
-        
+        guard let menuSelection = selectedItem else { return }
+        // MARK: HERE
         switch menuSelection {
         case .characters:
             // We call the method to fetch all characters
@@ -117,7 +113,7 @@ class InformationViewController: UIViewController {
                 DispatchQueue.main.async {
                     //  First we check wether we have characters
                     guard let characters = characters else {
-                        self.errorAlert(description: "Could not retrieve characters. Please check your internet connection or http://swapi.co/api for API status")
+                        self.errorAlert(description: CharacterError.noCharacters.localizedDescription)
                         return
                     }
                     
@@ -129,7 +125,7 @@ class InformationViewController: UIViewController {
                     Client.getHomeworld(for: characters[0]) { (planet, error) in
                         DispatchQueue.main.async {
                             guard let planet = planet else {
-                                self.errorAlert(description: "Could not get homeworld for character. Please check your internet connection or http://swapi.co/api for API status")
+                                self.errorAlert(description: CharacterError.noPlanet.localizedDescription)
                                 return
                             }
                             
@@ -141,7 +137,7 @@ class InformationViewController: UIViewController {
                     Client.getAssociatedVehicle(for: characters[0]) { (vehicle, error) in
                         DispatchQueue.main.async {
                             guard let vehicle = vehicle else {
-                                self.errorAlert(description: "Could not find associated vehicle for character. Please check your internet connection or http://swapi.co/api for API status")
+                                self.errorAlert(description: CharacterError.noAssociatedVehicles.localizedDescription)
                                 return
                             }
                             self.associatedVehicleDataLabel.text = vehicle.name
@@ -151,7 +147,7 @@ class InformationViewController: UIViewController {
                     Client.getAssociatedStarship(for: characters[0]) { (starship, error) in
                         DispatchQueue.main.async {
                             guard let starship = starship else {
-                                self.errorAlert(description: "Could not find associated starship for character. Please check your internet connection or http://swapi.co/api for API status")
+                                self.errorAlert(description: CharacterError.noAssociatedStarships.localizedDescription)
                                 return
                             }
                             self.associatedStarshipDataLabel.text = starship.name
@@ -168,7 +164,7 @@ class InformationViewController: UIViewController {
                 DispatchQueue.main.async {
                     //  First we check wether we have vehicles
                     guard let vehicles = vehicles else {
-                        self.errorAlert(description: "Could not retrieve vehicles. Please check your internet connection or http://swapi.co/api for API status")
+                        self.errorAlert(description: VehicleError.noVehicles.localizedDescription)
                         return
                     }
                     
@@ -178,12 +174,8 @@ class InformationViewController: UIViewController {
                     self.picker.reloadAllComponents() // And reload the picker
 
                     activityAnimationToggle?.stopAnimating() // stop the activity indicator
-                    
-
                 }
-                
             }
-            
             
         case ItemSelected.starships:
             // We call the method to fetch all starships
@@ -191,7 +183,7 @@ class InformationViewController: UIViewController {
                 DispatchQueue.main.async {
                     //  First we check wether we have starship
                     guard let starships = starships else {
-                        self.errorAlert(description: "Could not retrieve starships. Please check your internet connection or http://swapi.co/api for API status")
+                        self.errorAlert(description: StarshipError.noStarships.localizedDescription)
                         return
                     }
                     
@@ -201,41 +193,54 @@ class InformationViewController: UIViewController {
                     self.picker.reloadAllComponents() // And reload the picker
  
                     activityAnimationToggle?.stopAnimating() // stop the activity indicator
-                    
                 }
-                
             }
-            
         }
     }
-    
     
     // MARK: Update Labelinformation Content Methods
     func updateCharacterData(with character: Character) {
         clearLabelData()
         
         // We unwrap each optional before updating the label content
-        guard let characterName = character.name else { return }
+        guard let characterName = character.name else {
+            self.errorAlert(description: CharacterError.noName.localizedDescription)
+            return
+        }
         self.subheaderLabel.text = characterName
         
         Client.getHomeworld(for: character) { (planet, error) in
             DispatchQueue.main.async {
                 if let planet = planet {
                     self.planetLabel.text = planet.name
+                } else {
+                    self.errorAlert(description: CharacterError.noPlanet.localizedDescription)
                 }
             }
         }
         
-        guard let birthYear = character.birthYear else { return }
+        guard let birthYear = character.birthYear else {
+            self.errorAlert(description: CharacterError.noBirthYear.localizedDescription)
+            return
+        }
         self.yearLabel.text = birthYear
         
-        guard let characterHeight = character.height else { return }
+        guard let characterHeight = character.height else {
+            self.errorAlert(description: CharacterError.noHeight.localizedDescription)
+            return
+        }
         self.heightValueLabel.text = "\(characterHeight)"
         
-        guard let eyeColor = character.eyeColor else { return }
+        guard let eyeColor = character.eyeColor else {
+            self.errorAlert(description: CharacterError.noEyeColor.localizedDescription)
+            return
+        }
         self.eyeColorLabel.text = eyeColor
         
-        guard let hairColor = character.hairColor else { return }
+        guard let hairColor = character.hairColor else {
+            self.errorAlert(description: CharacterError.noHairColor.localizedDescription)
+            return
+        }
         self.hairColorLabel.text = hairColor
         
         guard let allCharacters = self.allCharacters else { return }
@@ -247,6 +252,8 @@ class InformationViewController: UIViewController {
             DispatchQueue.main.async {
                 if let vehicle = vehicle {
                     self.associatedVehicleDataLabel.text = vehicle.name
+                } else {
+                    self.errorAlert(description: CharacterError.noAssociatedVehicles.localizedDescription)
                 }
             }
         }
@@ -255,6 +262,8 @@ class InformationViewController: UIViewController {
             DispatchQueue.main.async {
                 if let starship = starship {
                     self.associatedStarshipDataLabel.text = starship.name
+                } else {
+                    self.errorAlert(description: CharacterError.noAssociatedStarships.localizedDescription)
                 }
             }
         }
@@ -265,22 +274,40 @@ class InformationViewController: UIViewController {
         clearLabelData()
         DispatchQueue.main.async {
             // We unwrap each optional before updating the label content
-            guard let vehicleName = vehicle.name else { return }
+            guard let vehicleName = vehicle.name else {
+                self.errorAlert(description: VehicleError.noName.localizedDescription)
+                return
+            }
             self.subheaderLabel.text = vehicleName
             
-            guard let vehicleModel = vehicle.model else { return }
+            guard let vehicleModel = vehicle.model else {
+                self.errorAlert(description: VehicleError.noModel.localizedDescription)
+                return
+            }
             self.yearLabel.text = vehicleModel
             
-            guard let costInCredeits = vehicle.costInCredits else { return }
+            guard let costInCredeits = vehicle.costInCredits else {
+                self.errorAlert(description: VehicleError.noCost.localizedDescription)
+                return
+            }
             self.planetLabel.text = "\(costInCredeits)"
             
-            guard let lenghtInMeters = vehicle.length else { return }
+            guard let lenghtInMeters = vehicle.length else {
+                self.errorAlert(description: VehicleError.noLenght.localizedDescription)
+                return
+            }
             self.heightValueLabel.text = "\(lenghtInMeters)"
             
-            guard let vehicleClass = vehicle.vehicleClass else { return }
+            guard let vehicleClass = vehicle.vehicleClass else {
+                self.errorAlert(description: VehicleError.noClass.localizedDescription)
+                return
+            }
             self.eyeColorLabel.text = vehicleClass
             
-            guard let crew = vehicle.crew else { return }
+            guard let crew = vehicle.crew else {
+                self.errorAlert(description: VehicleError.noCrew.localizedDescription)
+                return
+            }
             self.hairColorLabel.text = crew
             
             guard let allVehicles = self.allVehicles else { return }
@@ -295,22 +322,40 @@ class InformationViewController: UIViewController {
         clearLabelData()
         DispatchQueue.main.async {
             // We unwrap each optional before updating the label content
-            guard let starshipName = starship.name else { return }
+            guard let starshipName = starship.name else {
+                self.errorAlert(description: StarshipError.noName.localizedDescription)
+                return
+            }
             self.subheaderLabel.text = starshipName
             
-            guard let starshipModel = starship.model else { return }
+            guard let starshipModel = starship.model else {
+                self.errorAlert(description: StarshipError.noModel.localizedDescription)
+                return
+            }
             self.yearLabel.text = starshipModel
             
-            guard let costInCredeits = starship.costInCredits else { return }
+            guard let costInCredeits = starship.costInCredits else {
+                self.errorAlert(description: StarshipError.noCost.localizedDescription)
+                return
+            }
             self.planetLabel.text = "\(costInCredeits)"
             
-            guard let lenghtInMeters = starship.length else { return }
+            guard let lenghtInMeters = starship.length else {
+                self.errorAlert(description: StarshipError.noLenght.localizedDescription)
+                return
+            }
             self.heightValueLabel.text = "\(lenghtInMeters)"
             
-            guard let starshipClass = starship.starshipClass else { return }
+            guard let starshipClass = starship.starshipClass else {
+                self.errorAlert(description: StarshipError.noClass.localizedDescription)
+                return
+            }
             self.eyeColorLabel.text = starshipClass
             
-            guard let crew = starship.crew else { return }
+            guard let crew = starship.crew else {
+                self.errorAlert(description: StarshipError.noCrew.localizedDescription)
+                return
+            }
             self.hairColorLabel.text = crew
             
             guard let allStarships = self.allStarships else { return }
@@ -362,6 +407,7 @@ class InformationViewController: UIViewController {
             associatedStack.isHidden = true
             creditLabel.isHidden = false
             
+//            creditLabel.text = "GC"
             unitsLabel.text = "m" // Default is meters
             
         case .starships:
@@ -379,6 +425,7 @@ class InformationViewController: UIViewController {
             associatedStack.isHidden = true
             creditLabel.isHidden = false
             
+//            creditLabel.text = "GC"
             unitsLabel.text = "m" // Default is meters
 
         }
@@ -388,16 +435,8 @@ class InformationViewController: UIViewController {
     // MARK: Convert Button
     @IBAction func convertButton(_ sender: UIButton) {
 
-        // This should convert between Metric and British units
-        // According to https://scifi.stackexchange.com/questions/181859/what-is-one-galactic-credit-worth the GC has about the same value as a USD
-
-        // First we check wether a selection has been made
-        guard let menuSelection = selectedItem else {
-            self.errorAlert(description: "An error occured in making a menu selection")
-            return
-        }
-    
-        guard let value = Double(heightValueLabel.text!) else { return } // First we check if label has content
+        guard let menuSelection = selectedItem else { return }
+        guard let value = Double(heightValueLabel.text!) else { return } // Check if label has content
 
         switch menuSelection {
         case .characters:
@@ -423,6 +462,31 @@ class InformationViewController: UIViewController {
             
             return
         case .vehicles:
+            
+            // Convert credits
+            if creditLabel.text == "GC" {
+                // If cost != "unknown" we can convert
+                if planetLabel.text != "unknown" {
+                    guard let cost = Double(planetLabel.text!) else { return }
+                    let USDollars = cost / conversionRate
+                    planetLabel.text = "\(USDollars)"
+                    creditLabel.text = "USD"
+                } else {
+                    creditLabel.text = "USD"
+                }
+            } else if creditLabel.text == "USD" {
+                if planetLabel.text != "unknown" {
+                    guard let cost = Double(planetLabel.text!) else { return }
+                    let galacticCredits = cost * conversionRate
+                    planetLabel.text = "\(galacticCredits)"
+                    creditLabel.text = "USD"
+                    creditLabel.text = "GC"
+                } else {
+                    creditLabel.text = "GC"
+                }
+            }
+            
+            // Convert length
             if unitsLabel.text == "m" {
                 // If it == "cm" we do something and then set it to "inch"
                 let ft = value * 3.28
@@ -433,6 +497,14 @@ class InformationViewController: UIViewController {
                 let meters = value / 3.28
                 heightValueLabel.text = "\(meters)"
                 unitsLabel.text = "m"
+            }
+            
+            // Fades the label, that changed due to exchange rate input, out then in again
+            self.creditLabel.customFadeOut(0.3, delay: 0) { (finished: Bool) -> Void in
+                self.creditLabel.customFadeIn(0.3, delay: 0)
+            }
+            self.planetLabel.customFadeOut(0.3, delay: 0) { (finished: Bool) -> Void in
+                self.planetLabel.customFadeIn(0.3, delay: 0)
             }
 
             self.unitsLabel.customFadeOut(0.3, delay: 0) { (finished: Bool) -> Void in
@@ -443,6 +515,29 @@ class InformationViewController: UIViewController {
             }
             return
         case .starships:
+            
+            if creditLabel.text == "GC" {
+                // If cost != "unknown" we can convert
+                if planetLabel.text != "unknown" {
+                    guard let cost = Double(planetLabel.text!) else { return }
+                    let USDollars = cost / conversionRate
+                    planetLabel.text = "\(USDollars)"
+                    creditLabel.text = "USD"
+                } else {
+                    creditLabel.text = "USD"
+                }
+            } else if creditLabel.text == "USD" {
+                if planetLabel.text != "unknown" {
+                    guard let cost = Double(planetLabel.text!) else { return }
+                    let galacticCredits = cost * conversionRate
+                    planetLabel.text = "\(galacticCredits)"
+                    creditLabel.text = "USD"
+                    creditLabel.text = "GC"
+                } else {
+                    creditLabel.text = "GC"
+                }
+            }
+            
             if unitsLabel.text == "m" {
                 // If it == "cm" we do something and then set it to "inch"
                 let ft = value * 3.28
@@ -453,6 +548,14 @@ class InformationViewController: UIViewController {
                 let meters = value / 3.28
                 heightValueLabel.text = "\(meters)"
                 unitsLabel.text = "m"
+            }
+            
+            // Fades the label, that changed due to exchange rate input, out then in again
+            self.creditLabel.customFadeOut(0.3, delay: 0) { (finished: Bool) -> Void in
+                self.creditLabel.customFadeIn(0.3, delay: 0)
+            }
+            self.planetLabel.customFadeOut(0.3, delay: 0) { (finished: Bool) -> Void in
+                self.planetLabel.customFadeIn(0.3, delay: 0)
             }
 
             self.unitsLabel.customFadeOut(0.3, delay: 0) { (finished: Bool) -> Void in
@@ -465,16 +568,50 @@ class InformationViewController: UIViewController {
         }
         
     }
+    
+    // MARK: Exchange rate input
+    @objc func launchConversionRateEditor(sender: UITapGestureRecognizer) {
+        let alert = UIAlertController(title: nil, message: "Here you can change the conversion rate used to convert between Galactic Credits and US Dollars.", preferredStyle: .alert)
+        alert.addTextField { (textfield) in
+            textfield.placeholder = "Enter a number"
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let setRate = UIAlertAction(title: "Set Rate", style: .default) { action -> Void in
+            
+            guard let textField = alert.textFields?.first, let input = textField.text else { return }
+            
+            guard let number = Double(input) else {
+                self.errorAlert(description: ConversionError.invalidInput.localizedDescription)
+                return
+            }
+            
+            if number <= 0 {
+                self.errorAlert(description: ConversionError.negativeOrZero.localizedDescription)
+            } else {
+                self.conversionRate = number
+            }
+        }
 
+        alert.addAction(setRate)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+
+    func setupLabelTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(launchConversionRateEditor))
+        self.creditLabel.isUserInteractionEnabled = true
+        self.creditLabel.addGestureRecognizer(tap)
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         clearLabelData()
-        
-//        informationOverviewStack.alpha = 0
-//        backgroundView.alpha = 0
+        setupLabelTap()
         
         // First we make sure we have an item selected if not we return
         guard let selection = selectedItem else { return }
@@ -501,11 +638,6 @@ class InformationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        // InformationOverviewstack/background fade in
-//        self.informationOverviewStack.quickFadeIn()
-//        self.backgroundView.quickFadeIn()
-        
     }
     
 }
