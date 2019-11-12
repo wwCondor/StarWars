@@ -443,12 +443,12 @@ class InformationViewController: UIViewController {
             if unitsLabel.text == "cm" {
                 // If it == "cm" we do something and then set it to "inch"
                 let inches = value / 2.54
-                heightValueLabel.text = "\(inches)"
+                heightValueLabel.text = String(format: "%.2f", inches)
                 unitsLabel.text = "inch"
             } else if unitsLabel.text == "inch" {
                 // If it == "inch" we do something and then set it to "cm"
                 let centimers = value * 2.54
-                heightValueLabel.text = "\(centimers)"
+                heightValueLabel.text = String(format: "%.0f", centimers)
                 unitsLabel.text = "cm"
             }
             
@@ -469,7 +469,7 @@ class InformationViewController: UIViewController {
                 if planetLabel.text != "unknown" {
                     guard let cost = Double(planetLabel.text!) else { return }
                     let USDollars = cost / conversionRate
-                    planetLabel.text = "\(USDollars)"
+                    planetLabel.text = String(format: "%.0f", USDollars)
                     creditLabel.text = "USD"
                 } else {
                     creditLabel.text = "USD"
@@ -478,7 +478,7 @@ class InformationViewController: UIViewController {
                 if planetLabel.text != "unknown" {
                     guard let cost = Double(planetLabel.text!) else { return }
                     let galacticCredits = cost * conversionRate
-                    planetLabel.text = "\(galacticCredits)"
+                    planetLabel.text = String(format: "%.0f", galacticCredits)
                     creditLabel.text = "USD"
                     creditLabel.text = "GC"
                 } else {
@@ -490,12 +490,12 @@ class InformationViewController: UIViewController {
             if unitsLabel.text == "m" {
                 // If it == "cm" we do something and then set it to "inch"
                 let ft = value * 3.28
-                heightValueLabel.text = "\(ft)"
+                heightValueLabel.text = String(format: "%.2f", ft)
                 unitsLabel.text = "ft"
             } else if unitsLabel.text == "ft" {
                 // If it == "inch" we do something and then set it to "cm"
                 let meters = value / 3.28
-                heightValueLabel.text = "\(meters)"
+                heightValueLabel.text = String(format: "%.1f", meters)
                 unitsLabel.text = "m"
             }
             
@@ -521,7 +521,7 @@ class InformationViewController: UIViewController {
                 if planetLabel.text != "unknown" {
                     guard let cost = Double(planetLabel.text!) else { return }
                     let USDollars = cost / conversionRate
-                    planetLabel.text = "\(USDollars)"
+                    planetLabel.text = String(format: "%.0f", USDollars)
                     creditLabel.text = "USD"
                 } else {
                     creditLabel.text = "USD"
@@ -530,7 +530,7 @@ class InformationViewController: UIViewController {
                 if planetLabel.text != "unknown" {
                     guard let cost = Double(planetLabel.text!) else { return }
                     let galacticCredits = cost * conversionRate
-                    planetLabel.text = "\(galacticCredits)"
+                    planetLabel.text = String(format: "%.0f", galacticCredits)
                     creditLabel.text = "USD"
                     creditLabel.text = "GC"
                 } else {
@@ -541,12 +541,12 @@ class InformationViewController: UIViewController {
             if unitsLabel.text == "m" {
                 // If it == "cm" we do something and then set it to "inch"
                 let ft = value * 3.28
-                heightValueLabel.text = "\(ft)"
+                heightValueLabel.text = String(format: "%.0f", ft)
                 unitsLabel.text = "ft"
             } else if unitsLabel.text == "ft" {
                 // If it == "inch" we do something and then set it to "cm"
                 let meters = value / 3.28
-                heightValueLabel.text = "\(meters)"
+                heightValueLabel.text = String(format: "%.2f", meters)
                 unitsLabel.text = "m"
             }
             
